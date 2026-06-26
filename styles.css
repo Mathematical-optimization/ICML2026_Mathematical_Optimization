@@ -350,6 +350,7 @@ button, input, select, textarea { font: inherit; }
 .detail-card .detail-secondary { margin-top: -0.1rem; color: #c7d0cc; font-size: 0.88rem; font-weight: 600; }
 .detail-card small { display: block; max-width: 640px; color: var(--muted); font-size: 0.78rem; line-height: 1.55; }
 .text-link { display: inline-flex; align-items: center; gap: 0.45rem; color: var(--accent); font-size: 0.78rem; font-weight: 800; text-decoration: none; white-space: nowrap; }
+.notice-chip { display: inline-flex; align-items: center; min-height: 36px; padding: 0.55rem 0.8rem; border: 1px solid rgba(183,243,74,0.32); border-radius: 999px; background: rgba(183,243,74,0.08); color: var(--accent); font-size: 0.72rem; font-weight: 850; letter-spacing: 0.02em; white-space: nowrap; }
 
 .rsvp-section { width: min(calc(100% - 48px), var(--max)); min-height: 540px; margin: 0 auto 110px; display: grid; grid-template-columns: 0.75fr 1.25fr; overflow: hidden; border-radius: var(--radius-lg); background: var(--accent); color: var(--ink); }
 .rsvp-graphic { min-height: 100%; position: relative; overflow: hidden; background: #a9e642; }
@@ -436,7 +437,7 @@ button, input, select, textarea { font: inherit; }
   .prompt-panel { padding: 1.35rem; }
   .details-grid { grid-template-columns: 1fr; }
   .detail-card-wide { grid-column: auto; grid-template-columns: 46px 1fr; }
-  .detail-card-wide .text-link { grid-column: 2; }
+  .detail-card-wide .text-link, .detail-card-wide .notice-chip { grid-column: 2; justify-self: start; }
   .rsvp-section { min-height: 0; grid-template-columns: 1fr; margin-bottom: 74px; border-radius: 22px; }
   .rsvp-graphic { min-height: 250px; }
   .rsvp-copy { padding: 2.2rem 1.35rem 2.6rem; }
@@ -455,4 +456,17 @@ button, input, select, textarea { font: inherit; }
   .hero, .section, .rsvp-section, .site-footer { width: 100%; margin: 0; padding: 24px; color: black; background: white; }
   .hero { min-height: 0; display: block; }
   .rsvp-section { display: block; }
+}
+
+/* Keep the Korean hero title balanced on wide screens without affecting mobile layouts. */
+@media (min-width: 1041px) {
+  [lang="ko"] .hero {
+    grid-template-columns: minmax(0, 0.94fr) minmax(500px, 1.06fr);
+  }
+  [lang="ko"] .hero h1 {
+    font-size: clamp(3.9rem, 6vw, 6rem);
+    line-height: 0.92;
+    letter-spacing: -0.052em;
+    word-break: keep-all;
+  }
 }
