@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08110f">
+  <meta name="description" content="An independent coffee chat and dinner for mathematical optimization researchers attending ICML 2026 in Seoul.">
+  <meta property="og:title" content="Optimization After Hours · ICML 2026 Seoul">
+  <meta property="og:description" content="Coffee chats, research conversations, and dinner for mathematical optimization researchers.">
+  <meta property="og:type" content="website">
+  <title>Optimization After Hours · ICML 2026 Seoul</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="event-config.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-en="Skip to content" data-ko="본문으로 이동">Skip to content</a>
+
+  <div class="page-shell">
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Optimization After Hours home">
+        <span class="brand-mark" aria-hidden="true">∇</span>
+        <span class="brand-copy">
+          <strong>OPT / AFTER HOURS</strong>
+          <span>SEOUL · 2026</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Section navigation">
+        <a href="#format" data-en="Format" data-ko="진행 방식">Format</a>
+        <a href="#schedule" data-en="Schedule" data-ko="일정">Schedule</a>
+        <a href="#details" data-en="Details" data-ko="상세 정보">Details</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="lang-toggle" id="lang-toggle" type="button" aria-label="한국어로 보기">
+          <span class="lang-active">EN</span><span aria-hidden="true">/</span><span>KO</span>
+        </button>
+        <a class="button button-small button-ghost rsvp-link" href="#rsvp" data-en="Request a seat" data-ko="참가 신청">Request a seat</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-visual" aria-hidden="true">
+          <svg class="contours" viewBox="0 0 900 720" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="contourFade" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#b7f34a" stop-opacity="0.95"/>
+                <stop offset="0.55" stop-color="#5ce1c6" stop-opacity="0.54"/>
+                <stop offset="1" stop-color="#5ce1c6" stop-opacity="0.06"/>
+              </linearGradient>
+            </defs>
+            <g fill="none" stroke="url(#contourFade)" stroke-width="1.4">
+              <path d="M78,510 C125,343 254,222 432,191 C604,161 777,228 844,360 C921,512 790,650 612,679 C397,714 209,648 117,571 C96,553 83,533 78,510Z"/>
+              <path d="M133,497 C174,366 279,271 431,242 C573,215 718,265 785,374 C853,486 760,589 607,621 C436,656 278,608 190,552 C159,531 139,513 133,497Z"/>
+              <path d="M198,479 C228,386 308,316 430,291 C548,267 665,302 725,390 C783,475 711,540 599,568 C467,601 350,569 270,527 C234,508 205,490 198,479Z"/>
+              <path d="M267,462 C293,403 352,357 434,339 C523,320 610,344 659,401 C709,460 658,503 585,521 C493,545 414,528 350,500 C307,481 275,467 267,462Z"/>
+              <path d="M340,448 C356,417 391,393 439,381 C494,368 545,381 576,411 C610,445 578,467 539,478 C489,493 447,486 406,472 C372,460 347,451 340,448Z"/>
+            </g>
+            <path class="descent-path" d="M770 190 C677 211 698 301 608 319 C518 338 548 414 462 434" fill="none"/>
+            <circle class="solution-dot" cx="462" cy="434" r="7"/>
+            <circle class="solution-ring" cx="462" cy="434" r="18" fill="none"/>
+          </svg>
+          <div class="formula-card">
+            <span class="formula-label" data-en="Tonight’s objective" data-ko="오늘의 목적함수">Tonight’s objective</span>
+            <code>min<sub>x∈X</sub> distance(ideas, people)</code>
+          </div>
+        </div>
+
+        <div class="hero-copy">
+          <div class="eyebrow-row">
+            <span class="eyebrow" data-en="MATHEMATICAL OPTIMIZATION · IN PERSON" data-ko="수학적 최적화 · 오프라인">MATHEMATICAL OPTIMIZATION · IN PERSON</span>
+            <span class="status-pill"><span class="status-dot" aria-hidden="true"></span><span id="date-status">Tentative schedule</span></span>
+          </div>
+
+          <h1 id="hero-title">
+            <span data-en="Optimization" data-ko="최적화 연구자들의">Optimization</span>
+            <em data-en="after hours." data-ko="애프터 아워.">after hours.</em>
+          </h1>
+
+          <p class="hero-lede" data-en="A small, research-first evening for people working on the mathematics of optimization—coffee chats first, then dinner near COEX." data-ko="최적화의 수학을 연구하는 사람들을 위한 소규모 연구 중심 모임입니다. COEX 인근에서 커피챗을 진행한 뒤 함께 저녁 식사를 합니다.">
+            A small, research-first evening for people working on the mathematics of optimization—coffee chats first, then dinner near COEX.
+          </p>
+
+          <div class="hero-meta" aria-label="Event summary">
+            <div class="meta-item">
+              <span class="meta-icon" aria-hidden="true">01</span>
+              <div><span class="meta-label" data-en="When" data-ko="일시">When</span><strong id="date-label">Fri, July 10, 2026 · 18:00–21:30 KST</strong></div>
+            </div>
+            <div class="meta-item">
+              <span class="meta-icon" aria-hidden="true">02</span>
+              <div><span class="meta-label" data-en="Where" data-ko="장소">Where</span><strong id="location-label">Near COEX, Seoul · exact venues shared after confirmation</strong></div>
+            </div>
+            <div class="meta-item">
+              <span class="meta-icon" aria-hidden="true">03</span>
+              <div><span class="meta-label" data-en="Group" data-ko="규모">Group</span><strong><span id="capacity-label">24</span> <span data-en="seats · RSVP required" data-ko="명 · 사전 신청 필수">seats · RSVP required</span></strong></div>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a class="button button-primary rsvp-link" href="#rsvp">
+              <span data-en="Request a seat" data-ko="참가 신청하기">Request a seat</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5"/></svg>
+            </a>
+            <button class="button button-secondary" id="calendar-button" type="button">
+              <span data-en="Add to calendar" data-ko="캘린더에 추가">Add to calendar</span>
+            </button>
+          </div>
+
+          <div class="countdown" id="countdown" aria-live="polite">
+            <span class="countdown-kicker" data-en="Until we meet" data-ko="모임까지">Until we meet</span>
+            <div class="countdown-values">
+              <span><strong id="days">—</strong><small data-en="days" data-ko="일">days</small></span>
+              <span><strong id="hours">—</strong><small data-en="hours" data-ko="시간">hours</small></span>
+              <span><strong id="minutes">—</strong><small data-en="min" data-ko="분">min</small></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="signal-strip" aria-label="Research topics">
+        <div class="signal-track">
+          <span>CONVEX &amp; NONCONVEX</span><i>∇</i>
+          <span>STOCHASTIC METHODS</span><i>∇</i>
+          <span>VARIATIONAL ANALYSIS</span><i>∇</i>
+          <span>BILEVEL OPTIMIZATION</span><i>∇</i>
+          <span>OPTIMAL TRANSPORT</span><i>∇</i>
+          <span>CONTROL &amp; LEARNING</span><i>∇</i>
+          <span>CONVEX &amp; NONCONVEX</span><i>∇</i>
+          <span>STOCHASTIC METHODS</span><i>∇</i>
+          <span>VARIATIONAL ANALYSIS</span><i>∇</i>
+          <span>BILEVEL OPTIMIZATION</span><i>∇</i>
+        </div>
+      </section>
+
+      <section class="section intro-section" id="format">
+        <div class="section-heading">
+          <span class="section-index">01 / FORMAT</span>
+          <h2 data-en="Fewer slides. Better questions." data-ko="발표는 줄이고, 질문은 깊게.">Fewer slides. Better questions.</h2>
+        </div>
+        <div class="intro-grid">
+          <p class="intro-statement" data-en="The point is not to perform finished work. It is to find the person who sees your problem from a different geometry." data-ko="완성된 연구를 발표하는 자리가 아닙니다. 내 문제를 다른 기하와 관점으로 바라보는 사람을 만나는 자리입니다.">
+            The point is not to perform finished work. It is to find the person who sees your problem from a different geometry.
+          </p>
+          <div class="principles">
+            <article class="principle-card">
+              <span class="card-number">A</span>
+              <h3 data-en="Research-first" data-ko="연구 중심">Research-first</h3>
+              <p data-en="Open problems, proof ideas, negative results, and useful counterexamples are all welcome." data-ko="열린 문제, 증명 아이디어, 실패한 결과, 유용한 반례까지 모두 환영합니다.">Open problems, proof ideas, negative results, and useful counterexamples are all welcome.</p>
+            </article>
+            <article class="principle-card">
+              <span class="card-number">B</span>
+              <h3 data-en="Small by design" data-ko="의도적으로 작게">Small by design</h3>
+              <p data-en="A capped group keeps introductions short and makes room for actual technical conversation." data-ko="참가 인원을 제한해 소개는 짧게, 실제 기술적 대화는 충분히 진행합니다.">A capped group keeps introductions short and makes room for actual technical conversation.</p>
+            </article>
+            <article class="principle-card">
+              <span class="card-number">C</span>
+              <h3 data-en="No pitch decks" data-ko="홍보성 발표 없음">No pitch decks</h3>
+              <p data-en="This is a peer gathering—not a recruiting session, product demo, or sponsored reception." data-ko="채용 행사, 제품 데모, 후원 리셉션이 아닌 동료 연구자들의 모임입니다.">This is a peer gathering—not a recruiting session, product demo, or sponsored reception.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section schedule-section" id="schedule">
+        <div class="section-heading">
+          <span class="section-index">02 / FLOW</span>
+          <h2 data-en="Coffee first. Dinner follows." data-ko="먼저 커피챗, 이후 저녁 식사.">Coffee first. Dinner follows.</h2>
+        </div>
+
+        <div class="schedule-layout">
+          <div class="timeline" role="list" aria-label="Event schedule">
+            <article class="timeline-item" role="listitem">
+              <time datetime="18:00">18:00</time>
+              <div class="timeline-node" aria-hidden="true"><span></span></div>
+              <div class="timeline-copy"><h3 data-en="Arrive & order" data-ko="도착 및 주문">Arrive &amp; order</h3><p data-en="Grab a drink, pick a table, and add one research keyword to the shared board." data-ko="음료를 주문하고 자리를 잡은 뒤, 공용 보드에 연구 키워드 하나를 남깁니다.">Grab a drink, pick a table, and add one research keyword to the shared board.</p></div>
+            </article>
+            <article class="timeline-item" role="listitem">
+              <time datetime="18:15">18:15</time>
+              <div class="timeline-node" aria-hidden="true"><span></span></div>
+              <div class="timeline-copy"><h3 data-en="90-second introductions" data-ko="90초 자기소개">90-second introductions</h3><p data-en="Name, affiliation, current question, and one method you want to discuss." data-ko="이름, 소속, 현재 연구 질문, 함께 이야기하고 싶은 방법론 하나를 소개합니다.">Name, affiliation, current question, and one method you want to discuss.</p></div>
+            </article>
+            <article class="timeline-item" role="listitem">
+              <time datetime="18:35">18:35</time>
+              <div class="timeline-node" aria-hidden="true"><span></span></div>
+              <div class="timeline-copy"><h3 data-en="Three coffee-chat rounds" data-ko="커피챗 3라운드">Three coffee-chat rounds</h3><p data-en="Three 20-minute conversations, lightly matched by topic and deliberately mixed by career stage." data-ko="주제는 가볍게 맞추고 경력 단계는 의도적으로 섞어 20분 대화를 세 차례 진행합니다.">Three 20-minute conversations, lightly matched by topic and deliberately mixed by career stage.</p></div>
+            </article>
+            <article class="timeline-item" role="listitem">
+              <time datetime="19:40">19:40</time>
+              <div class="timeline-node" aria-hidden="true"><span></span></div>
+              <div class="timeline-copy"><h3 data-en="Walk to dinner" data-ko="식당으로 이동">Walk to dinner</h3><p data-en="A short reset—and a chance to continue the conversation that should not have ended." data-ko="잠시 환기하며, 끝내기 아쉬웠던 대화를 이어갑니다.">A short reset—and a chance to continue the conversation that should not have ended.</p></div>
+            </article>
+            <article class="timeline-item" role="listitem">
+              <time datetime="20:00">20:00</time>
+              <div class="timeline-node" aria-hidden="true"><span></span></div>
+              <div class="timeline-copy"><h3 data-en="Dinner & open tables" data-ko="저녁 식사 및 자유 대화">Dinner &amp; open tables</h3><p data-en="Long-form discussion, collaboration follow-ups, and local recommendations. Formal program ends at 21:30." data-ko="깊이 있는 토론, 협업 후속 논의, 서울 정보 교류를 진행하며 공식 일정은 21:30에 마칩니다.">Long-form discussion, collaboration follow-ups, and local recommendations. Formal program ends at 21:30.</p></div>
+            </article>
+          </div>
+
+          <aside class="prompt-panel" aria-labelledby="prompt-title">
+            <span class="mini-label" data-en="BRING ONE QUESTION" data-ko="질문 하나를 준비하세요">BRING ONE QUESTION</span>
+            <h3 id="prompt-title" data-en="Conversation prompts" data-ko="대화 주제 예시">Conversation prompts</h3>
+            <ul>
+              <li data-en="Which assumption in your current theorem feels least necessary?" data-ko="현재 정리의 가정 중 가장 불필요해 보이는 것은 무엇인가요?">Which assumption in your current theorem feels least necessary?</li>
+              <li data-en="What failure mode taught you more than a positive result?" data-ko="긍정적 결과보다 더 많은 것을 알려준 실패 사례는 무엇인가요?">What failure mode taught you more than a positive result?</li>
+              <li data-en="Which optimization problem is ML currently formulating incorrectly?" data-ko="현재 머신러닝 분야가 잘못 정식화하고 있다고 생각하는 최적화 문제는 무엇인가요?">Which optimization problem is ML currently formulating incorrectly?</li>
+              <li data-en="What tool from another field should optimization researchers borrow next?" data-ko="최적화 연구자가 다음으로 빌려와야 할 타 분야의 도구는 무엇인가요?">What tool from another field should optimization researchers borrow next?</li>
+            </ul>
+            <div class="prompt-equation" aria-hidden="true">
+              <span>good conversation</span>
+              <b>=</b>
+              <span>specific question</span>
+              <b>+</b>
+              <span>unfinished thought</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section audience-section">
+        <div class="section-heading compact-heading">
+          <span class="section-index">03 / PEOPLE</span>
+          <h2 data-en="Who this is for" data-ko="이런 분들을 위한 모임입니다">Who this is for</h2>
+        </div>
+        <div class="audience-grid">
+          <div class="audience-copy">
+            <p data-en="Researchers, PhD students, postdocs, and practitioners who engage seriously with mathematical optimization in machine learning, statistics, control, operations research, or adjacent fields." data-ko="머신러닝, 통계, 제어, 운영과학 및 인접 분야에서 수학적 최적화를 진지하게 다루는 연구자, 박사과정, 박사후연구원, 실무자를 대상으로 합니다.">Researchers, PhD students, postdocs, and practitioners who engage seriously with mathematical optimization in machine learning, statistics, control, operations research, or adjacent fields.</p>
+            <p class="muted" data-en="You do not need an accepted ICML paper. You should be comfortable discussing technical research in English." data-ko="ICML 채택 논문은 필요하지 않습니다. 영어로 기술적 연구 대화가 가능하면 됩니다.">You do not need an accepted ICML paper. You should be comfortable discussing technical research in English.</p>
+          </div>
+          <div class="topic-cloud" aria-label="Relevant research areas">
+            <span>Convex optimization</span>
+            <span>Nonconvex geometry</span>
+            <span>Stochastic approximation</span>
+            <span>Variational inequalities</span>
+            <span>Optimal transport</span>
+            <span>Bilevel &amp; meta-learning</span>
+            <span>Distributed optimization</span>
+            <span>Optimization theory for ML</span>
+            <span>Control &amp; decision</span>
+            <span>Nonsmooth methods</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section details-section" id="details">
+        <div class="section-heading">
+          <span class="section-index">04 / DETAILS</span>
+          <h2 data-en="The useful specifics" data-ko="참가 전 확인할 정보">The useful specifics</h2>
+        </div>
+
+        <div class="details-grid">
+          <article class="detail-card detail-card-wide">
+            <span class="detail-icon" aria-hidden="true">⌖</span>
+            <div>
+              <h3 data-en="Meeting point" data-ko="집결 장소">Meeting point</h3>
+              <p><span data-en="Coffee: " data-ko="커피챗: ">Coffee: </span><span id="coffee-venue">A quiet café near COEX</span></p>
+              <p class="detail-secondary"><span data-en="Dinner: " data-ko="저녁 식사: ">Dinner: </span><span id="dinner-venue">A nearby restaurant with group seating</span></p>
+              <small data-en="The exact café and dinner restaurant will be emailed to confirmed participants." data-ko="정확한 카페와 식당은 확정 참가자에게 이메일로 안내합니다.">The exact café and dinner restaurant will be emailed to confirmed participants.</small>
+            </div>
+            <a class="text-link" id="map-link" href="#" target="_blank" rel="noreferrer"><span data-en="Open COEX map" data-ko="COEX 지도 열기">Open COEX map</span><span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="detail-card">
+            <span class="detail-icon" aria-hidden="true">◎</span>
+            <div><h3 data-en="Capacity" data-ko="정원">Capacity</h3><p><span id="capacity-detail">24</span> <span data-en="participants" data-ko="명">participants</span></p><small data-en="A waitlist opens when seats fill." data-ko="정원 마감 후 대기 명단을 운영합니다.">A waitlist opens when seats fill.</small></div>
+          </article>
+
+          <article class="detail-card">
+            <span class="detail-icon" aria-hidden="true">文</span>
+            <div><h3 data-en="Language" data-ko="언어">Language</h3><p id="language-label">English-first · Korean welcome</p><small data-en="Pair conversations can use any mutually comfortable language." data-ko="1:1 대화는 서로 편한 언어를 사용해도 됩니다.">Pair conversations can use any mutually comfortable language.</small></div>
+          </article>
+
+          <article class="detail-card">
+            <span class="detail-icon" aria-hidden="true">₩</span>
+            <div><h3 data-en="Cost" data-ko="비용">Cost</h3><p data-en="Pay your own order" data-ko="개별 주문 금액 부담">Pay your own order</p><small data-en="Dietary needs are collected during RSVP and considered when selecting dinner." data-ko="신청 시 식이 요구사항을 받고 식당 선정에 반영합니다.">Dietary needs are collected during RSVP and considered when selecting dinner.</small></div>
+          </article>
+
+          <article class="detail-card">
+            <span class="detail-icon" aria-hidden="true">◇</span>
+            <div><h3 data-en="Affiliation" data-ko="행사 성격">Affiliation</h3><p data-en="Independent meetup" data-ko="비공식 독립 모임">Independent meetup</p><small data-en="Not organized, endorsed, or sponsored by ICML." data-ko="ICML이 주최·승인·후원하는 행사가 아닙니다.">Not organized, endorsed, or sponsored by ICML.</small></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="rsvp-section" id="rsvp" aria-labelledby="rsvp-title">
+        <div class="rsvp-graphic" aria-hidden="true">
+          <span class="rsvp-symbol">∇f</span>
+          <svg viewBox="0 0 420 420">
+            <circle cx="210" cy="210" r="155"/>
+            <circle cx="210" cy="210" r="112"/>
+            <circle cx="210" cy="210" r="70"/>
+            <path d="M85 105C158 134 146 205 211 210C282 216 269 287 341 316"/>
+          </svg>
+        </div>
+        <div class="rsvp-copy">
+          <span class="section-index light-index">05 / RSVP</span>
+          <h2 id="rsvp-title" data-en="Bring a question worth walking to dinner with." data-ko="저녁 자리까지 이어가고 싶은 질문을 가져오세요.">Bring a question worth walking to dinner with.</h2>
+          <p data-en="The RSVP asks for one research keyword and one question you would genuinely like to discuss. We use them only to make the coffee-chat rounds more useful." data-ko="참가 신청에서는 연구 키워드 하나와 실제로 논의하고 싶은 질문 하나를 받습니다. 이 정보는 커피챗 매칭을 더 유용하게 만드는 데만 사용합니다.">The RSVP asks for one research keyword and one question you would genuinely like to discuss. We use them only to make the coffee-chat rounds more useful.</p>
+          <div class="rsvp-actions">
+            <a class="button button-dark rsvp-link" href="#rsvp"><span id="rsvp-button-label" data-en="RSVP opening soon" data-ko="참가 신청 준비 중">RSVP opening soon</span><span aria-hidden="true">↗</span></a>
+            <a class="organizer-email" id="email-link" href="#"><span data-en="Organizer contact" data-ko="주최자 문의">Organizer contact</span><strong id="email-label">Add email in event-config.js</strong></a>
+          </div>
+          <p class="privacy-note" data-en="No mailing list. No sponsor follow-up. RSVP information is used only for this gathering." data-ko="메일링 리스트나 후원사 연락에 사용하지 않으며, 신청 정보는 이 모임 운영에만 사용합니다.">No mailing list. No sponsor follow-up. RSVP information is used only for this gathering.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">
+        <span class="brand-mark" aria-hidden="true">∇</span>
+        <div><strong id="footer-event-name">Optimization After Hours</strong><span data-en="An independent community meetup in Seoul" data-ko="서울에서 열리는 비공식 커뮤니티 모임">An independent community meetup in Seoul</span></div>
+      </div>
+      <div class="footer-meta">
+        <p data-en="Held alongside ICML 2026, July 6–11 at COEX, Seoul. This event is not affiliated with ICML." data-ko="2026년 7월 6–11일 서울 COEX에서 열리는 ICML 2026 기간 중 진행되며, ICML과 공식 제휴 관계가 없습니다.">Held alongside ICML 2026, July 6–11 at COEX, Seoul. This event is not affiliated with ICML.</p>
+        <a id="conference-link" href="#" target="_blank" rel="noreferrer"><span data-en="Official ICML 2026 site" data-ko="ICML 2026 공식 사이트">Official ICML 2026 site</span><span aria-hidden="true">↗</span></a>
+      </div>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
