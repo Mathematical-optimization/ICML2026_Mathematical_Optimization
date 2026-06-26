@@ -13,7 +13,7 @@
     catch (_) { /* Storage can be unavailable on local files or privacy-restricted browsers. */ }
   }
 
-  const state = { lang: readStoredLanguage() || "en" };
+  const state = { lang: readStoredLanguage() || "ko" };
   const byId = (id) => document.getElementById(id);
 
   function localized(value, fallback = "") {
@@ -50,10 +50,11 @@
       "location-label": localized(config.locationLabel),
       "coffee-venue": localized(config.coffeeVenue),
       "dinner-venue": localized(config.dinnerVenue),
-      "capacity-label": config.capacity || 24,
-      "capacity-detail": config.capacity || 24,
-      "language-label": localized(config.languageLabel),
-      "footer-event-name": localized(config.eventName, "Optimization After Hours")
+      "audience-label": localized(config.audienceLabel),
+      "fee-label": localized(config.feeLabel),
+      "fee-summary": localized(config.feeLabel),
+      "notice-label": localized(config.noticeLabel),
+      "footer-event-name": localized(config.eventName, "ICML 2026 Mathematical Optimization Meetup")
     };
 
     Object.entries(values).forEach(([id, value]) => {
@@ -61,8 +62,6 @@
       if (node) node.textContent = value;
     });
 
-    const mapLink = byId("map-link");
-    if (mapLink) mapLink.href = config.mapUrl || "https://maps.google.com/?q=COEX+Seoul";
 
     const conferenceLink = byId("conference-link");
     if (conferenceLink) conferenceLink.href = config.officialConferenceUrl || "https://icml.cc/Conferences/2026";
@@ -167,35 +166,44 @@
   }
 
   function downloadCalendar() {
-    if (!config.startISO || !config.endISO) {
-      showToast(state.lang === "ko" ? "event-config.js에 시작·종료 시간을 설정하세요." : "Set start and end times in event-config.js.");
+    if (!config.startISO) {
+      showToast(state.lang === "ko" ? "event-config.js에 시작 시간을 설정하세요." : "Set the start time in event-config.js.");
       return;
     }
 
-    const title = localized(config.eventName, "Optimization After Hours");
+    const title = localized(config.eventName, "ICML 2026 Mathematical Optimization Meetup");
     const description = localized(config.calendarDescription);
-    const location = localized(config.locationLabel, "Near COEX, Seoul");
-    const uid = `optimization-after-hours-2026-${Date.now()}@local`;
+    const location = localized(config.calendarLocation || config.locationLabel, "Cafe Underline, Seoul");
+    const uid = `icml-2026-mathematical-optimization-meetup-${Date.now()}@local`;
     const stamp = toIcsUtc(new Date().toISOString());
     const start = toIcsUtc(config.startISO);
-    const end = toIcsUtc(config.endISO);
+    const endDate = config.endISO ? new Date(config.endISO) : null;
+    const hasValidEnd = endDate && !Number.isNaN(endDate.getTime());
+
+    const eventLines = [
+      "BEGIN:VEVENT",
+      `UID:${uid}`,
+      `DTSTAMP:${stamp}`,
+      `DTSTART:${start}`
+    ];
+
+    if (hasValidEnd) eventLines.push(`DTEND:${toIcsUtc(config.endISO)}`);
+
+    eventLines.push(
+      `SUMMARY:${escapeIcs(title)}`,
+      `DESCRIPTION:${escapeIcs(description)}`,
+      `LOCATION:${escapeIcs(location)}`,
+      "STATUS:CONFIRMED",
+      "END:VEVENT"
+    );
 
     const ics = [
       "BEGIN:VCALENDAR",
       "VERSION:2.0",
-      "PRODID:-//Optimization After Hours//ICML 2026//EN",
+      "PRODID:-//ICML 2026 Mathematical Optimization Meetup//EN",
       "CALSCALE:GREGORIAN",
       "METHOD:PUBLISH",
-      "BEGIN:VEVENT",
-      `UID:${uid}`,
-      `DTSTAMP:${stamp}`,
-      `DTSTART:${start}`,
-      `DTEND:${end}`,
-      `SUMMARY:${escapeIcs(title)}`,
-      `DESCRIPTION:${escapeIcs(description)}`,
-      `LOCATION:${escapeIcs(location)}`,
-      "STATUS:TENTATIVE",
-      "END:VEVENT",
+      ...eventLines,
       "END:VCALENDAR"
     ].join("\r\n");
 
@@ -203,7 +211,7 @@
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = "optimization-after-hours-icml-2026.ics";
+    link.download = "icml-2026-mathematical-optimization-meetup.ics";
     document.body.appendChild(link);
     link.click();
     link.remove();
