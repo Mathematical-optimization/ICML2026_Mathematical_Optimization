@@ -1,35 +1,48 @@
 # ICML 2026 Mathematical Optimization Meetup — Website Source
 
-ICML 2026 기간 중 서울 COEX 인근에서 진행하는 **수학적 최적화 연구자 커피챗 + 저녁 식사**용 정적 웹페이지입니다.
+ICML 2026 참가자 중 **수학적 최적화(Mathematical Optimization) 연구에 관심 있는 사람들**을 위한 오프라인 티타임 및 저녁 모임용 정적 웹페이지입니다.
+
+## 확정 반영된 행사 정보
+
+- 대상: 수학적 최적화 연구에 관심 있는 ICML 2026 참가자
+- 시작: 2026년 7월 7일(화) 16:00 KST
+- 티타임: 카페 언더라인
+- 진행: 인사, 아이스브레이킹 및 친목 중심의 티타임 후 저녁 식사
+- 저녁 대화: AI 연구와 관련된 다양한 주제
+- 참여 비용: 1인 15,000원
+- 최종 안내: 7월 6일 참석 확정자에게 세부 집결 위치, 시간 안내 및 식사 장소 전달
+
+종료 시각은 제공된 정보에 없으므로 화면에 임의로 표시하지 않았고, 생성되는 `.ics` 파일에도 `DTEND`를 넣지 않았습니다. 종료 시각이 확정되면 `event-config.js`의 `endISO`를 설정하면 됩니다.
+
+## 주요 기능
 
 - 외부 프레임워크·폰트·이미지 의존성 없음
 - 반응형 데스크톱/모바일 레이아웃
-- 영어/한국어 전환
+- 한국어 기본 표시 및 영어 전환
 - `.ics` 캘린더 파일 생성
 - 접근성 기본 요소와 `prefers-reduced-motion` 대응
 - ICML 공식 행사로 오인되지 않도록 독립 행사 고지 포함
 
 ## 1. 가장 먼저 수정할 파일
 
-`event-config.js`만 열어 아래 항목을 바꾸면 됩니다.
+`event-config.js`에서 신청 링크와 주최자 이메일을 실제 값으로 교체하세요.
 
 ```js
 window.EVENT_CONFIG = Object.freeze({
-  startISO: "2026-07-10T18:00:00+09:00",
-  endISO: "2026-07-10T21:30:00+09:00",
+  startISO: "2026-07-07T16:00:00+09:00",
+  endISO: "", // 종료 시각 확정 후 예: "2026-07-07T20:30:00+09:00"
   rsvpUrl: "https://forms.gle/여기에-신청폼-주소",
   organizerEmail: "organizer@your-domain.org"
 });
 ```
 
-특히 다음 네 항목을 실제 정보로 교체하세요.
+식당이나 세부 집결 위치가 확정되면 다음 항목도 갱신하세요.
 
-1. `startISO`, `endISO`: 실제 시작·종료 시각
-2. `dateLabel`: 화면에 표시할 날짜 문구(영문/국문)
-3. `rsvpUrl`: Google Forms, Tally, Luma, Partiful 등의 신청 링크
-4. `organizerEmail`: 문의 이메일
-
-카페와 식당이 확정되면 `coffeeVenue`, `dinnerVenue`, `locationLabel`, `mapUrl`도 수정하세요.
+- `locationLabel`
+- `coffeeVenue`
+- `dinnerVenue`
+- `calendarLocation`
+- `calendarDescription`
 
 ## 2. 로컬 실행
 
@@ -40,7 +53,7 @@ cd icml2026-optimization-meetup
 python3 -m http.server 8080
 ```
 
-그다음 브라우저에서 `http://localhost:8080`을 엽니다.
+브라우저에서 `http://localhost:8080`을 엽니다.
 
 ## 3. 배포
 
@@ -50,34 +63,22 @@ python3 -m http.server 8080
 - Netlify
 - Vercel
 - Cloudflare Pages
-- 사내 정적 호스팅/S3
+- 사내 정적 호스팅 또는 S3
 
 루트 디렉터리에 `index.html`이 오도록 업로드하면 됩니다.
 
-## 4. 문구·디자인 수정
+## 4. 파일별 역할
 
-- 본문: `index.html`
-- 색상·레이아웃: `styles.css` 상단의 CSS 변수
+- 본문 및 문구: `index.html`
+- 색상·레이아웃: `styles.css`
 - 언어 전환·카운트다운·캘린더: `script.js`
-- 행사 정보: `event-config.js`
+- 행사별 설정: `event-config.js`
 
-주요 색상:
+## 5. 배포 전 체크리스트
 
-```css
---bg: #08110f;
---accent: #b7f34a;
---accent-2: #5ce1c6;
---paper: #f1f4ec;
-```
-
-## 5. 운영 체크리스트
-
-- 신청 폼에 연구 키워드, 논의하고 싶은 질문, 식이 요구사항을 포함
-- 실제 일정 확정 후 `dateStatus`를 “Confirmed / 확정”으로 변경
-- 확정 참가자에게 카페·식당 상세 주소 발송
-- 신청 마감 시 `rsvpUrl`을 대기 명단 폼으로 교체
-- 행사 종료 후 카운트다운 및 참가 신청 버튼 정리
-
-## 참고
-
-페이지에 기재된 2026년 7월 10일 일정은 예시용 임시 일정입니다. 공개된 ICML 공식 소셜 시간대(7월 6·8·9일 저녁)와의 직접 충돌을 피하도록 잡았지만, 최신 컨퍼런스 플래너를 확인한 뒤 최종 확정하세요.
+- `rsvpUrl`에 실제 참가 신청 링크 입력
+- `organizerEmail`에 실제 문의 이메일 입력
+- 7월 6일 최종 안내 후 식당명과 세부 장소 반영
+- 종료 시각 확정 시 `endISO` 입력
+- 신청 폼에 참여 비용 15,000원과 안내 일정을 명확히 표기
+- 행사 종료 후 카운트다운 및 신청 버튼 정리
